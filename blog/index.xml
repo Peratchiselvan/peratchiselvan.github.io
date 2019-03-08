@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on Peratchiselvan</title>
-    <link>http://selvasoft.in/blog/</link>
+    <link>https://peratchiselvan.github.io/blog/</link>
     <description>Recent content in Blogs on Peratchiselvan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Aug 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://selvasoft.in/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://peratchiselvan.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How I Escaped From Mass Surveilance</title>
-      <link>http://selvasoft.in/blog/how-i-escaped-from-mass-surveilance/</link>
+      <link>https://peratchiselvan.github.io/blog/how-i-escaped-from-mass-surveilance/</link>
       <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://selvasoft.in/blog/how-i-escaped-from-mass-surveilance/</guid>
+      <guid>https://peratchiselvan.github.io/blog/how-i-escaped-from-mass-surveilance/</guid>
       <description>Hello guys,
 Do you guys wonder how much data corporations collect from us? I wondered about it so many times. How can anyone still give informations after knowing what anyone can do with that informations. In this post I am gonna show you how I escaped mass surveilance.
 Social Network Most of you guys put everything in social network. Thats not a good practice. You are giving every information to a stalker.</description>
@@ -24,20 +24,20 @@ Social Network Most of you guys put everything in social network. Thats not a go
     
     <item>
       <title>Kula chat</title>
-      <link>http://selvasoft.in/blog/kula-chat/</link>
+      <link>https://peratchiselvan.github.io/blog/kula-chat/</link>
       <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://selvasoft.in/blog/kula-chat/</guid>
+      <guid>https://peratchiselvan.github.io/blog/kula-chat/</guid>
       <description>Hello guys, I started to develop a open source client for telegram. It is available at gitlab link Lets see how to build the app.
 Prerequisite  Download the prebuilt android library tdlib from this link Unzip the file into Kula-Chat root folder. Also you have to install android NDK.  Build instructions  You have to update the apiID and apiHASH in the MainActivity.java in both here and here  Hope you guys like it.</description>
     </item>
     
     <item>
       <title>Hello World!</title>
-      <link>http://selvasoft.in/blog/hello/</link>
+      <link>https://peratchiselvan.github.io/blog/hello/</link>
       <pubDate>Sat, 05 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://selvasoft.in/blog/hello/</guid>
+      <guid>https://peratchiselvan.github.io/blog/hello/</guid>
       <description>Hello people, For the past month, I have been thinking about starting a blog. I wanted to have full customization. So, I didn&amp;rsquo;t chose wordpress or blogger or any other corporate website creator. Remaining option is Static Site Generator. I searched for the best SSG. I seen Jekyll. But, Hugo seems to have more customization like JSON output,RSS feed etc. Which are needed because I planned to create an app for this blog.</description>
     </item>
     
