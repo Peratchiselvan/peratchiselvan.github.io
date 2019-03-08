@@ -1,0 +1,10 @@
+{
+    "name": "Projects",
+    "projects": [
+    { "title": "SaAsh Calculator","description": "I developed this beautiful and function rich calculator app for SaAsh Technologies","link": "https://play.google.com/store/apps/details?id=com.saashtechs.calculator"} , 
+    { "title": "Vaguparai","description": "I developed this beautiful and perfect app for the Vaguparai website","link": "https://play.google.com/store/apps/details?id=digital.vavi.vaguparai&hl=en_US"} , 
+    { "title": "DistroHop","description": "As it is my first project, I worked hard for it. Learnt about RecyclerView etc...","link": "https://play.google.com/store/apps/details?id=cf.selvasoft.linuxdistros&hl=en"} , 
+    { "title": "Kula Chat (In Development)","description": "An open source telegram client for android created using tdlib library","link": "https://gitlab.com/Peratchiselvan/Kula-Chat"} , 
+    { "title": "iSurf","description": "I created this web browser to escape myself from ads and trackers","link": "https://play.google.com/store/apps/details?id=cf.selvasoft.isurf&hl=en"}  ]
+    
+}

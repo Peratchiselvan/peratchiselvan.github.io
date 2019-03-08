@@ -1,0 +1,30 @@
+{
+  "posts": [
+ {
+    "name": "How I Escaped From Mass Surveilance",
+    "date": "August 4, 2018",
+    "permalink" : "http://selvasoft.in/blog/how-i-escaped-from-mass-surveilance/"
+}
+    ,  {
+    "name": "Kula chat",
+    "date": "July 25, 2018",
+    "permalink" : "http://selvasoft.in/blog/kula-chat/"
+}
+    ,  {
+    "name": "Hello World!",
+    "date": "May 5, 2018",
+    "permalink" : "http://selvasoft.in/blog/hello/"
+}
+    ,  {
+    "name": "Projects",
+    "date": "October 2, 2016",
+    "permalink" : "http://selvasoft.in/projects/"
+}
+    ,  {
+    "name": "About me",
+    "date": "January 1, 0001",
+    "permalink" : "http://selvasoft.in/about-me/"
+}
+    
+]
+}

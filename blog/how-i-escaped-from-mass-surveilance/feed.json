@@ -1,0 +1,44 @@
+{
+    "name": "How I Escaped From Mass Surveilance",
+    "content" : "
+
+<p>Hello guys,</p>
+
+<p>Do you guys wonder how much data corporations collect from us?
+I wondered about it so many times. How can anyone still give informations after knowing what
+anyone can do with that informations. In this post I am gonna show you how I escaped mass surveilance.</p>
+
+<h1 id=\"social-network\">Social Network</h1>
+
+<p>Most of you guys put everything in social network. Thats not a good practice. You are giving every information to a stalker.
+Even if you put it only in for friends. NSA and CIA can access your data. By data means everything i.e your messages, private photos etc&hellip;.
+So, what I did was deleted every social network that I was in. You have to delete every account you own in facebook and et al.
+They have a huge list of services i.e facebook, instagram, tinder, whatsapp and increasing.
+Delete all accounts in any of this services.</p>
+
+<h1 id=\"the-big-brother\">The big brother</h1>
+
+<p>Google. Its essential for every things. Google search, youtube, playstore, maps, etc. You cant live without google. But we have to.
+Delete your gmail account and get an email account in <a href=\"https://tutanota.com\">tutanota</a> or <a href=\"https://protonmail.com\">protonmail</a>.
+I prefer tutanota.</p>
+
+<h1 id=\"youtube\">Youtube</h1>
+
+<p>To use youtube you can go to <a href=\"https://envidio.us\">envidio</a>. Its basically youtube without trackers and stuffs.</p>
+
+<h1 id=\"instant-messaging\">Instant messaging</h1>
+
+<p>For instant messaging you can use telegram. Use only secret chat option to chat.</p>
+
+<h1 id=\"browser\">Browser</h1>
+
+<p>Currently I am using qutebrowser and <a href=\"https://brave.com\">brave</a>. Brave blocks trackers and ads by default.</p>
+
+<h1 id=\"mobile\">Mobile</h1>
+
+<p>Ok. Here comes the main part. Google has a backdoor in your stock android os. It moniters everything you do in it. So, wipe that and install LineageOS.
+It came from the ashes of CyanogenMOD.</p>
+
+<p>Dont install GAPPS. Use fdroid. Fdroid only shows open source apps. Use only open source apps. Disable the location service entirely.</p>
+"
+}
