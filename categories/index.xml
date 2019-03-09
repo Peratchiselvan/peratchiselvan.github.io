@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Peratchiselvan</title>
-    <link>https://peratchiselvan.github.io/categories/</link>
+    <link>https://selvasoft.in/categories/</link>
     <description>Recent content in Categories on Peratchiselvan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://peratchiselvan.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://selvasoft.in/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Projects</title>
-      <link>https://peratchiselvan.github.io/categories/projects/</link>
+      <link>https://selvasoft.in/categories/projects/</link>
       <pubDate>Sun, 02 Oct 2016 22:55:05 -0400</pubDate>
       
-      <guid>https://peratchiselvan.github.io/categories/projects/</guid>
+      <guid>https://selvasoft.in/categories/projects/</guid>
       <description></description>
     </item>
     
