@@ -1,0 +1,135 @@
+{
+    "name": "Creating Command Line Torrent Searcher",
+    "content" : "
+
+<p>Its been difficult to search torrents in the web these days.
+So, I planned to create a torrent searching script using python.
+First of all, we need asource to scrap the torrents.</p>
+
+<p>I use the following torrent websites:</p>
+
+<ul>
+<li><a href=\"https://thepiratebay.org\" target=\"_blank\">The Pirate Bay</a></li>
+<li><a href=\"https://snowfl.com\" target=\"_blank\">snowfl</a></li>
+<li><a href=\"https://skytorrents.to/\" target=\"_blank\">Skytorrents</a></li>
+</ul>
+
+<h1 id=\"review\">Review</h1>
+
+<p>The Pirate Bay proxies are banned pretty quickly. So, its waste to use them.</p>
+
+<p>Snowfl is great since that website itself scraps torrents from tpb and 1337x etc&hellip;
+But there is no way to provide search arguments in the url.</p>
+
+<p>( Like <code>https://google.com/?q=search+term</code> )</p>
+
+<p>Next option is skytorrents. Darn, It even got rss to search. I planned to use it.</p>
+
+<h1 id=\"creation\">Creation</h1>
+
+<p>The base url for rss search is <code>https://skytorrents.to/rss?search=search+term</code></p>
+
+<p>I tried to parse it using <a href=\"https://pypi.org/project/feedparser/\" target=\"_blank\">feedparser</a> library in python.</p>
+
+<p>F**k, the seeders and leechers in the rss feed are in the torznab attribute
+<div class=\"highlight\"><pre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"><code class=\"language-xml\" data-lang=\"xml\"><span style=\"color:#f92672\">&lt;torznab:attr</span> <span style=\"color:#a6e22e\">name=</span><span style=\"color:#e6db74\">&#34;category&#34;</span> <span style=\"color:#a6e22e\">value=</span><span style=\"color:#e6db74\">&#34;movie&#34;</span><span style=\"color:#f92672\">/&gt;</span>
+<span style=\"color:#f92672\">&lt;torznab:attr</span> <span style=\"color:#a6e22e\">name=</span><span style=\"color:#e6db74\">&#34;category&#34;</span> <span style=\"color:#a6e22e\">value=</span><span style=\"color:#e6db74\">&#34;1080&#34;</span><span style=\"color:#f92672\">/&gt;</span>
+<span style=\"color:#f92672\">&lt;torznab:attr</span> <span style=\"color:#a6e22e\">name=</span><span style=\"color:#e6db74\">&#34;category&#34;</span> <span style=\"color:#a6e22e\">value=</span><span style=\"color:#e6db74\">&#34;YiFY&#34;</span><span style=\"color:#f92672\">/&gt;</span>
+<span style=\"color:#f92672\">&lt;torznab:attr</span> <span style=\"color:#a6e22e\">name=</span><span style=\"color:#e6db74\">&#34;type&#34;</span> <span style=\"color:#a6e22e\">value=</span><span style=\"color:#e6db74\">&#34;video&#34;</span><span style=\"color:#f92672\">/&gt;</span>
+<span style=\"display:block;width:100%;background-color:#3c3d38\"><span style=\"color:#f92672\">&lt;torznab:attr</span> <span style=\"color:#a6e22e\">name=</span><span style=\"color:#e6db74\">&#34;seeders&#34;</span> <span style=\"color:#a6e22e\">value=</span><span style=\"color:#e6db74\">&#34;635&#34;</span><span style=\"color:#f92672\">/&gt;</span>
+</span><span style=\"display:block;width:100%;background-color:#3c3d38\"><span style=\"color:#f92672\">&lt;torznab:attr</span> <span style=\"color:#a6e22e\">name=</span><span style=\"color:#e6db74\">&#34;peers&#34;</span> <span style=\"color:#a6e22e\">value=</span><span style=\"color:#e6db74\">&#34;39&#34;</span><span style=\"color:#f92672\">/&gt;</span>
+</span><span style=\"color:#f92672\">&lt;torznab:attr</span> <span style=\"color:#a6e22e\">name=</span><span style=\"color:#e6db74\">&#34;infohash&#34;</span> <span style=\"color:#a6e22e\">value=</span><span style=\"color:#e6db74\">&#34;e2e457b2e77128cd20fafd0837bbdb9a4d543578&#34;</span><span style=\"color:#f92672\">/&gt;</span>
+<span style=\"color:#f92672\">&lt;torznab:attr</span> <span style=\"color:#a6e22e\">name=</span><span style=\"color:#e6db74\">&#34;minimumratio&#34;</span> <span style=\"color:#a6e22e\">value=</span><span style=\"color:#e6db74\">&#34;1.0&#34;</span><span style=\"color:#f92672\">/&gt;</span>
+<span style=\"color:#f92672\">&lt;torznab:attr</span> <span style=\"color:#a6e22e\">name=</span><span style=\"color:#e6db74\">&#34;minimumseedtime&#34;</span> <span style=\"color:#a6e22e\">value=</span><span style=\"color:#e6db74\">&#34;172800&#34;</span><span style=\"color:#f92672\">/&gt;</span></code></pre></div></p>
+
+<p>which are not parsed by feedparser library.</p>
+
+<p>Sh*t, now I am back to <a href=\"https://pypi.org/project/beautifulsoup4/\" target=\"_blank\">beautiful Soup</a> library to parse the html.
+Wait for it&hellip;..
+When I tried to parse, I came to know that beautifulsoup also supports parsing the xml(rss). Nice.
+Now I wrote a script to parse them and display in the terminal.
+The search argument is parsed using argparse library.</p>
+
+<p>The output is sh*ty,
+So, I used <a href=\"https://pypi.org/project/terminaltables/\" target=\"_blank\">terminal tables</a> library to get the clean output with the tables.</p>
+
+<h1 id=\"output\">Output</h1>
+
+<p><img src=\"https://i.ibb.co/d5gxSZf/photo-2019-04-01-13-42-19.jpg\" width=\"731\" height=\"410\"></p>
+
+<p>The script is given below.</p>
+
+<div class=\"highlight\"><pre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"><code class=\"language-python\" data-lang=\"python\"><span style=\"color:#75715e\"># Created by Selva &lt;selva@selvasoft.in&gt;</span>
+<span style=\"color:#75715e\"># © Selva</span>
+<span style=\"color:#f92672\">import</span> requests
+<span style=\"color:#f92672\">import</span> argparse
+<span style=\"color:#f92672\">import</span> sys
+<span style=\"color:#f92672\">from</span> bs4 <span style=\"color:#f92672\">import</span> BeautifulSoup
+<span style=\"color:#f92672\">from</span> terminaltables <span style=\"color:#f92672\">import</span> SingleTable
+<span style=\"color:#f92672\">from</span> textwrap <span style=\"color:#f92672\">import</span> wrap
+
+baseURL <span style=\"color:#f92672\">=</span> <span style=\"color:#e6db74\">&#39;https://www.skytorrents.to/rss?search=&#39;</span>
+
+<span style=\"color:#75715e\"># Using in-built argparse library to parse the command line arguments </span>
+parser <span style=\"color:#f92672\">=</span> argparse<span style=\"color:#f92672\">.</span>ArgumentParser(description<span style=\"color:#f92672\">=</span><span style=\"color:#e6db74\">&#34;Search torrents from the command line easily.&#34;</span>)
+parser<span style=\"color:#f92672\">.</span>add_argument(<span style=\"color:#e6db74\">&#39;-i&#39;</span>,<span style=\"color:#e6db74\">&#39;--items&#39;</span>,default<span style=\"color:#f92672\">=</span><span style=\"color:#ae81ff\">5</span>,help<span style=\"color:#f92672\">=</span><span style=\"color:#e6db74\">&#39;Number of items to display ( default: 5 )&#39;</span>)
+parser<span style=\"color:#f92672\">.</span>add_argument(<span style=\"color:#e6db74\">&#39;searchTerm&#39;</span>,type<span style=\"color:#f92672\">=</span>str,help<span style=\"color:#f92672\">=</span><span style=\"color:#e6db74\">&#39;Search term to search for torrent&#39;</span>)
+args <span style=\"color:#f92672\">=</span> parser<span style=\"color:#f92672\">.</span>parse_args()
+<span style=\"color:#75715e\"># Replacing the blank space(&#34; &#34;) with &#34;+&#34;, since the URL doesnt have any blank space</span>
+searchTerm <span style=\"color:#f92672\">=</span> args<span style=\"color:#f92672\">.</span>searchTerm<span style=\"color:#f92672\">.</span>replace(<span style=\"color:#e6db74\">&#39; &#39;</span>,<span style=\"color:#e6db74\">&#39;+&#39;</span>)
+num <span style=\"color:#f92672\">=</span> args<span style=\"color:#f92672\">.</span>items
+r <span style=\"color:#f92672\">=</span> requests<span style=\"color:#f92672\">.</span>get(baseURL<span style=\"color:#f92672\">+</span>searchTerm)
+soup <span style=\"color:#f92672\">=</span> BeautifulSoup(r<span style=\"color:#f92672\">.</span>text,<span style=\"color:#e6db74\">&#39;xml&#39;</span>)
+items <span style=\"color:#f92672\">=</span> soup<span style=\"color:#f92672\">.</span>find_all(<span style=\"color:#e6db74\">&#39;item&#39;</span>)
+<span style=\"color:#66d9ef\">if</span> len(items)<span style=\"color:#f92672\">==</span><span style=\"color:#ae81ff\">0</span>:
+    <span style=\"color:#66d9ef\">print</span>(<span style=\"color:#e6db74\">&#39;Item not found!!!&#39;</span>)
+    sys<span style=\"color:#f92672\">.</span>exit()
+
+<span style=\"color:#66d9ef\">def</span> <span style=\"color:#a6e22e\">convertSize</span>(size):
+    size <span style=\"color:#f92672\">=</span> round(size <span style=\"color:#f92672\">/</span> <span style=\"color:#ae81ff\">1024</span>,<span style=\"color:#ae81ff\">2</span>)
+    suffix <span style=\"color:#f92672\">=</span> <span style=\"color:#e6db74\">&#39;KB&#39;</span>
+    <span style=\"color:#66d9ef\">if</span> size <span style=\"color:#f92672\">&gt;</span> <span style=\"color:#ae81ff\">1000</span>:
+        size <span style=\"color:#f92672\">=</span> round(size <span style=\"color:#f92672\">/</span> <span style=\"color:#ae81ff\">1024</span>,<span style=\"color:#ae81ff\">2</span>)
+        suffix <span style=\"color:#f92672\">=</span> <span style=\"color:#e6db74\">&#39;MB&#39;</span>
+    <span style=\"color:#66d9ef\">if</span> size <span style=\"color:#f92672\">&gt;</span> <span style=\"color:#ae81ff\">1000</span>:
+        size <span style=\"color:#f92672\">=</span> round(size <span style=\"color:#f92672\">/</span> <span style=\"color:#ae81ff\">1024</span>,<span style=\"color:#ae81ff\">2</span>)
+        suffix <span style=\"color:#f92672\">=</span> <span style=\"color:#e6db74\">&#39;GB&#39;</span>    
+    <span style=\"color:#66d9ef\">if</span> size <span style=\"color:#f92672\">&gt;</span> <span style=\"color:#ae81ff\">1000</span>:
+        size <span style=\"color:#f92672\">=</span> round(size <span style=\"color:#f92672\">/</span> <span style=\"color:#ae81ff\">1024</span>,<span style=\"color:#ae81ff\">2</span>)
+        suffix <span style=\"color:#f92672\">=</span> <span style=\"color:#e6db74\">&#39;TB&#39;</span>
+    <span style=\"color:#66d9ef\">return</span> ( str(size) <span style=\"color:#f92672\">+</span> <span style=\"color:#e6db74\">&#39; &#39;</span> <span style=\"color:#f92672\">+</span> suffix )
+
+list1 <span style=\"color:#f92672\">=</span> [ ]
+mgntList <span style=\"color:#f92672\">=</span> [ ]
+list1<span style=\"color:#f92672\">.</span>append([<span style=\"color:#e6db74\">&#39;Index&#39;</span>,<span style=\"color:#e6db74\">&#39;Title&#39;</span>,<span style=\"color:#e6db74\">&#39;Date Added&#39;</span>,<span style=\"color:#e6db74\">&#39;Size&#39;</span>,<span style=\"color:#e6db74\">&#39;Seeders&#39;</span>,<span style=\"color:#e6db74\">&#39;Leechers&#39;</span>])
+<span style=\"color:#66d9ef\">for</span> i <span style=\"color:#f92672\">in</span> range(int(num)):
+    item <span style=\"color:#f92672\">=</span> items[i]
+    tempList <span style=\"color:#f92672\">=</span> [ ]
+    tempList<span style=\"color:#f92672\">.</span>append(str(i<span style=\"color:#f92672\">+</span><span style=\"color:#ae81ff\">1</span>))
+    tempList<span style=\"color:#f92672\">.</span>append(item<span style=\"color:#f92672\">.</span>title<span style=\"color:#f92672\">.</span>text)
+    mgntList<span style=\"color:#f92672\">.</span>append(item<span style=\"color:#f92672\">.</span>magneturl<span style=\"color:#f92672\">.</span>text)
+    tempList<span style=\"color:#f92672\">.</span>append(item<span style=\"color:#f92672\">.</span>pubDate<span style=\"color:#f92672\">.</span>text[<span style=\"color:#ae81ff\">5</span>:<span style=\"color:#ae81ff\">16</span>])
+    tempList<span style=\"color:#f92672\">.</span>append(convertSize(int(item<span style=\"color:#f92672\">.</span>size<span style=\"color:#f92672\">.</span>text)))
+    seeders <span style=\"color:#f92672\">=</span> item<span style=\"color:#f92672\">.</span>find(attrs<span style=\"color:#f92672\">=</span>{<span style=\"color:#e6db74\">&#39;name&#39;</span>:<span style=\"color:#e6db74\">&#39;seeders&#39;</span>})
+    tempList<span style=\"color:#f92672\">.</span>append(seeders[<span style=\"color:#e6db74\">&#39;value&#39;</span>])
+    peers <span style=\"color:#f92672\">=</span> item<span style=\"color:#f92672\">.</span>find(attrs<span style=\"color:#f92672\">=</span>{<span style=\"color:#e6db74\">&#39;name&#39;</span>:<span style=\"color:#e6db74\">&#39;peers&#39;</span>})
+    tempList<span style=\"color:#f92672\">.</span>append(peers[<span style=\"color:#e6db74\">&#39;value&#39;</span>])
+    list1<span style=\"color:#f92672\">.</span>append(tempList)
+
+
+cuteTable <span style=\"color:#f92672\">=</span> SingleTable(list1)
+max_width <span style=\"color:#f92672\">=</span> cuteTable<span style=\"color:#f92672\">.</span>column_max_width(<span style=\"color:#ae81ff\">1</span>)
+<span style=\"color:#66d9ef\">for</span> i <span style=\"color:#f92672\">in</span> range(<span style=\"color:#ae81ff\">1</span>,len(list1)):
+    row <span style=\"color:#f92672\">=</span> list1[i]
+    wrappedString <span style=\"color:#f92672\">=</span> <span style=\"color:#e6db74\">&#39;</span><span style=\"color:#ae81ff\">\n</span><span style=\"color:#e6db74\">&#39;</span><span style=\"color:#f92672\">.</span>join(wrap(row[<span style=\"color:#ae81ff\">1</span>], max_width))
+    cuteTable<span style=\"color:#f92672\">.</span>table_data[i][<span style=\"color:#ae81ff\">1</span>] <span style=\"color:#f92672\">=</span> wrappedString <span style=\"color:#f92672\">+</span><span style=\"color:#e6db74\">&#39;</span><span style=\"color:#ae81ff\">\n</span><span style=\"color:#e6db74\">&#39;</span>
+    
+<span style=\"color:#66d9ef\">print</span>(cuteTable<span style=\"color:#f92672\">.</span>table)
+choice <span style=\"color:#f92672\">=</span> int(input(<span style=\"color:#e6db74\">&#39;</span><span style=\"color:#ae81ff\">\n</span><span style=\"color:#e6db74\">Enter the index---&gt;&#39;</span>))
+<span style=\"color:#66d9ef\">print</span>(<span style=\"color:#e6db74\">&#39;</span><span style=\"color:#ae81ff\">\n</span><span style=\"color:#e6db74\">The magnet link is :</span><span style=\"color:#ae81ff\">\n</span><span style=\"color:#e6db74\">&#39;</span>)
+<span style=\"color:#66d9ef\">print</span>(mgntList[choice])</code></pre></div>
+
+<p>Any doubts? Contact me. ( Social Links are in the home page )
+<a href=\"https://selvasoft.in\">Homepage</a></p>
+"
+}

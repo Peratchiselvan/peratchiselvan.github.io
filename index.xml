@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Peratchiselvan</title>
+    <title>Selva&#39;s Website</title>
     <link>https://selvasoft.in/</link>
-    <description>Recent content on Peratchiselvan</description>
+    <description>Recent content on Selva&#39;s Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 01 Apr 2019 13:01:07 +0530</lastBuildDate>
     
 	<atom:link href="https://selvasoft.in/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Creating Command Line Torrent Searcher</title>
+      <link>https://selvasoft.in/blog/creating-command-line-torrent-searcher/</link>
+      <pubDate>Mon, 01 Apr 2019 13:01:07 +0530</pubDate>
+      
+      <guid>https://selvasoft.in/blog/creating-command-line-torrent-searcher/</guid>
+      <description>Its been difficult to search torrents in the web these days. So, I planned to create a torrent searching script using python. First of all, we need asource to scrap the torrents.
+I use the following torrent websites:
+ The Pirate Bay snowfl Skytorrents  Review The Pirate Bay proxies are banned pretty quickly. So, its waste to use them.
+Snowfl is great since that website itself scraps torrents from tpb and 1337x etc&amp;hellip; But there is no way to provide search arguments in the url.</description>
+    </item>
     
     <item>
       <title>How I Escaped From Mass Surveilance</title>
