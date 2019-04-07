@@ -3,71 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://selvasoft.in/blog/creating-command-line-torrent-searcher/</loc>
+    <loc>http://www.example.com/posts/creating-command-line-torrent-searcher/</loc>
     <lastmod>2019-04-01T13:01:07+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://selvasoft.in/blog/how-i-escaped-from-mass-surveilance/</loc>
+    <loc>http://www.example.com/posts/how-i-escaped-from-mass-surveilance/</loc>
     <lastmod>2018-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://selvasoft.in/blog/kula-chat/</loc>
+    <loc>http://www.example.com/posts/kula-chat/</loc>
     <lastmod>2018-07-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://selvasoft.in/blog/hello/</loc>
+    <loc>http://www.example.com/posts/hello/</loc>
     <lastmod>2018-05-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://selvasoft.in/projects/</loc>
-    <lastmod>2016-10-02T22:55:05-04:00</lastmod>
+    <loc>http://www.example.com/about/</loc>
   </url>
   
   <url>
-    <loc>https://selvasoft.in/about-me/</loc>
-  </url>
-  
-  <url>
-    <loc>https://selvasoft.in/blog/</loc>
+    <loc>http://www.example.com/posts/</loc>
     <lastmod>2019-04-01T13:01:07+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://selvasoft.in/categories/</loc>
-    <priority>0</priority>
+    <loc>http://www.example.com/projects/</loc>
   </url>
   
   <url>
-    <loc>https://selvasoft.in/page/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://selvasoft.in/tags/projects/</loc>
-    <lastmod>2016-10-02T22:55:05-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://selvasoft.in/categories/projects/</loc>
-    <lastmod>2016-10-02T22:55:05-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://selvasoft.in/</loc>
+    <loc>http://www.example.com/</loc>
     <lastmod>2019-04-01T13:01:07+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://selvasoft.in/tags/</loc>
-    <lastmod>2016-10-02T22:55:05-04:00</lastmod>
+    <loc>http://www.example.com/series/</loc>
     <priority>0</priority>
   </url>
   
