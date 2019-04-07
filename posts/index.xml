@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Selva</title>
-    <link>http://www.example.com/posts/</link>
+    <link>https://selvasoft.in/posts/</link>
     <description>Recent content in Posts on Selva</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 01 Apr 2019 13:01:07 +0530</lastBuildDate>
     
-	<atom:link href="http://www.example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://selvasoft.in/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Creating Command Line Torrent Searcher</title>
-      <link>http://www.example.com/posts/creating-command-line-torrent-searcher/</link>
+      <link>https://selvasoft.in/posts/creating-command-line-torrent-searcher/</link>
       <pubDate>Mon, 01 Apr 2019 13:01:07 +0530</pubDate>
       
-      <guid>http://www.example.com/posts/creating-command-line-torrent-searcher/</guid>
+      <guid>https://selvasoft.in/posts/creating-command-line-torrent-searcher/</guid>
       <description>Its been difficult to search torrents in the web these days. So, I planned to create a torrent searching script using python. First of all, we need asource to scrap the torrents.
 I use the following torrent websites:
  The Pirate Bay snowfl Skytorrents  Review The Pirate Bay proxies are banned pretty quickly. So, its waste to use them.
@@ -25,10 +25,10 @@ Snowfl is great since that website itself scraps torrents from tpb and 1337x etc
     
     <item>
       <title>How I Escaped From Mass Surveilance</title>
-      <link>http://www.example.com/posts/how-i-escaped-from-mass-surveilance/</link>
+      <link>https://selvasoft.in/posts/how-i-escaped-from-mass-surveilance/</link>
       <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/posts/how-i-escaped-from-mass-surveilance/</guid>
+      <guid>https://selvasoft.in/posts/how-i-escaped-from-mass-surveilance/</guid>
       <description>Hello guys,
 Do you guys wonder how much data corporations collect from us? I wondered about it so many times. How can anyone still give informations after knowing what anyone can do with that informations. In this post I am gonna show you how I escaped mass surveilance.
 Social Network Most of you guys put everything in social network. Thats not a good practice. You are giving every information to a stalker.</description>
@@ -36,20 +36,20 @@ Social Network Most of you guys put everything in social network. Thats not a go
     
     <item>
       <title>Kula chat</title>
-      <link>http://www.example.com/posts/kula-chat/</link>
+      <link>https://selvasoft.in/posts/kula-chat/</link>
       <pubDate>Wed, 25 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/posts/kula-chat/</guid>
+      <guid>https://selvasoft.in/posts/kula-chat/</guid>
       <description>Hello guys, I started to develop a open source client for telegram. It is available at gitlab link Lets see how to build the app.
 Prerequisite  Download the prebuilt android library tdlib from this link Unzip the file into Kula-Chat root folder. Also you have to install android NDK.  Build instructions  You have to update the apiID and apiHASH in the MainActivity.java in both here and here  Hope you guys like it.</description>
     </item>
     
     <item>
       <title>Hello World!</title>
-      <link>http://www.example.com/posts/hello/</link>
+      <link>https://selvasoft.in/posts/hello/</link>
       <pubDate>Sat, 05 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/posts/hello/</guid>
+      <guid>https://selvasoft.in/posts/hello/</guid>
       <description>Hello people, For the past month, I have been thinking about starting a blog. I wanted to have full customization. So, I didn&amp;rsquo;t chose wordpress or blogger or any other corporate website creator. Remaining option is Static Site Generator. I searched for the best SSG. I seen Jekyll. But, Hugo seems to have more customization like JSON output,RSS feed etc. Which are needed because I planned to create an app for this blog.</description>
     </item>
     
