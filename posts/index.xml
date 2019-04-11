@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Selva</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 01 Apr 2019 13:01:07 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 11 Apr 2019 12:35:43 +0530</lastBuildDate>
     
 	<atom:link href="https://selvasoft.in/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Best Python Script I Ever Created</title>
+      <link>https://selvasoft.in/posts/best-python-script-i-ever-created/</link>
+      <pubDate>Thu, 11 Apr 2019 12:35:43 +0530</pubDate>
+      
+      <guid>https://selvasoft.in/posts/best-python-script-i-ever-created/</guid>
+      <description>After my first semester exams in college (Computer Science Engineering, of course!) was over, we got the results.
+Fortunately, I got good marks. I eagerly wanted to know what my rank was.
+But, I didn’t want to ask each and every person to about their score. We studied Python in our first semester (But I knew python before it) .
+So, I thought like to make a python script to scrape all the grades and CGPA of my classmates.</description>
+    </item>
     
     <item>
       <title>Creating Command Line Torrent Searcher</title>
