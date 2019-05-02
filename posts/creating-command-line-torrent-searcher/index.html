@@ -1,124 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="">
+<meta name="description"
+    content="Its been difficult to search torrents in the web these days. So, I planned to create a torrent searching script using python. First of all, we need asource to scrap the torrents.
+I use the following torrent websites:
+ The Pirate Bay snowfl Skytorrents  Review The Pirate Bay proxies are banned pretty quickly. So, its waste to use them.
+Snowfl is great since that website itself scraps torrents from tpb and 1337x etc&amp;hellip; But there is no way to provide search arguments in the url." />
+<meta name="keywords" content="blog,developer,personal" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://selvasoft.in/posts/creating-command-line-torrent-searcher/" />
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="author" content="Selva">
-    <meta name="description" content="Software | Life | Scripts">
-    <meta name="keywords" content="blog,developer,personal">
+<title>
+    
+    Creating Command Line Torrent Searcher :: Peratchiselvan (Selva) 
+    
+</title>
 
-    <meta name="twitter:card" content="summary"/>
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://selvasoft.in/main.min.55af76e4b53bb4c46b1230014a22141db4c3d9b54e85403cc1c8922c7a4d49e4.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://selvasoft.in/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://selvasoft.in/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://selvasoft.in/favicon-16x16.png">
+<link rel="manifest" href="https://selvasoft.in/site.webmanifest">
+<link rel="mask-icon" href="https://selvasoft.in/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://selvasoft.in/favicon.ico">
+<meta name="theme-color" content="#252627">
+<meta itemprop="name" content="Creating Command Line Torrent Searcher">
+<meta itemprop="description" content="Its been difficult to search torrents in the web these days. So, I planned to create a torrent searching script using python. First of all, we need asource to scrap the torrents.
+I use the following torrent websites:
+ The Pirate Bay snowfl Skytorrents  Review The Pirate Bay proxies are banned pretty quickly. So, its waste to use them.
+Snowfl is great since that website itself scraps torrents from tpb and 1337x etc&hellip; But there is no way to provide search arguments in the url.">
+
+
+<meta itemprop="datePublished" content="2019-04-01T13:01:07&#43;05:30" />
+<meta itemprop="dateModified" content="2019-04-01T13:01:07&#43;05:30" />
+<meta itemprop="wordCount" content="491">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Creating Command Line Torrent Searcher"/>
 <meta name="twitter:description" content="Its been difficult to search torrents in the web these days. So, I planned to create a torrent searching script using python. First of all, we need asource to scrap the torrents.
 I use the following torrent websites:
  The Pirate Bay snowfl Skytorrents  Review The Pirate Bay proxies are banned pretty quickly. So, its waste to use them.
 Snowfl is great since that website itself scraps torrents from tpb and 1337x etc&hellip; But there is no way to provide search arguments in the url."/>
 
-    <meta property="og:title" content="Creating Command Line Torrent Searcher" />
-<meta property="og:description" content="Its been difficult to search torrents in the web these days. So, I planned to create a torrent searching script using python. First of all, we need asource to scrap the torrents.
-I use the following torrent websites:
- The Pirate Bay snowfl Skytorrents  Review The Pirate Bay proxies are banned pretty quickly. So, its waste to use them.
-Snowfl is great since that website itself scraps torrents from tpb and 1337x etc&hellip; But there is no way to provide search arguments in the url." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://selvasoft.in/posts/creating-command-line-torrent-searcher/" />
-<meta property="article:published_time" content="2019-04-01T13:01:07&#43;05:30"/>
-<meta property="article:modified_time" content="2019-04-01T13:01:07&#43;05:30"/>
 
 
-    
-      <base href="https://selvasoft.in/posts/creating-command-line-torrent-searcher/">
-    
-    <title>
-  Creating Command Line Torrent Searcher · Selva
-</title>
 
-    
-      <link rel="canonical" href="https://selvasoft.in/posts/creating-command-line-torrent-searcher/">
-    
+<meta property="article:published_time" content="2019-04-01 13:01:07 &#43;0530 IST" />
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
 
-    
-      
-      
-      <link rel="stylesheet" href="https://selvasoft.in/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
 
-    
 
-    
 
-    
 
-    <link rel="icon" type="image/png" href="https://selvasoft.in/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://selvasoft.in/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.54.0" />
-  </head>
+    </head>
 
-  <body class=" ">
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="https://selvasoft.in">
-      Selva
-    </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://selvasoft.in/" style="text-decoration: none;">
+    <div class="logo">
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://selvasoft.in/about/">About</a>
-          </li>
+            <span class="logo__mark">></span>
+            <span class="logo__text">HOME</span>
+            <span class="logo__cursor"></span>
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://selvasoft.in/posts/">Blog</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://selvasoft.in/projects/">Projects</a>
-          </li>
-        
-      
-      
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://selvasoft.in/about/">About</a></li><li><a href="https://selvasoft.in/posts/">Blog</a></li><li><a href="https://selvasoft.in/projects/">Projects</a></li>
     </ul>
-  </section>
 </nav>
 
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
 
-      <div class="content">
-        
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">Creating Command Line Torrent Searcher</h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2019-04-01T13:01:07&#43;05:30'>
-                April 1, 2019
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              3 minutes read
-            </span>
-          </div>
-          
-          
-        </div>
-      </header>
+            <span class="theme-toggle"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
 
-      <div>
-        
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>3 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title"><a href="https://selvasoft.in/posts/creating-command-line-torrent-searcher/">Creating Command Line Torrent Searcher</a></h1>
+
+            
+
+            <div class="post-content">
+                
 
 <p>Its been difficult to search torrents in the web these days.
 So, I planned to create a torrent searching script using python.
@@ -150,15 +165,15 @@ But there is no way to provide search arguments in the url.</p>
 <p>I tried to parse it using <a href="https://pypi.org/project/feedparser/" target="_blank">feedparser</a> library in python.</p>
 
 <p>F**k, the seeders and leechers in the rss feed are in the torznab attribute
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="font-weight:bold">&lt;torznab:attr</span> <span style="color:#007f7f">name=</span><span style="color:#0ff;font-weight:bold">&#34;category&#34;</span> <span style="color:#007f7f">value=</span><span style="color:#0ff;font-weight:bold">&#34;movie&#34;</span><span style="font-weight:bold">/&gt;</span>
-<span style="font-weight:bold">&lt;torznab:attr</span> <span style="color:#007f7f">name=</span><span style="color:#0ff;font-weight:bold">&#34;category&#34;</span> <span style="color:#007f7f">value=</span><span style="color:#0ff;font-weight:bold">&#34;1080&#34;</span><span style="font-weight:bold">/&gt;</span>
-<span style="font-weight:bold">&lt;torznab:attr</span> <span style="color:#007f7f">name=</span><span style="color:#0ff;font-weight:bold">&#34;category&#34;</span> <span style="color:#007f7f">value=</span><span style="color:#0ff;font-weight:bold">&#34;YiFY&#34;</span><span style="font-weight:bold">/&gt;</span>
-<span style="font-weight:bold">&lt;torznab:attr</span> <span style="color:#007f7f">name=</span><span style="color:#0ff;font-weight:bold">&#34;type&#34;</span> <span style="color:#007f7f">value=</span><span style="color:#0ff;font-weight:bold">&#34;video&#34;</span><span style="font-weight:bold">/&gt;</span>
-<span style="display:block;width:100%;background-color:#191919"><span style="font-weight:bold">&lt;torznab:attr</span> <span style="color:#007f7f">name=</span><span style="color:#0ff;font-weight:bold">&#34;seeders&#34;</span> <span style="color:#007f7f">value=</span><span style="color:#0ff;font-weight:bold">&#34;635&#34;</span><span style="font-weight:bold">/&gt;</span>
-</span><span style="display:block;width:100%;background-color:#191919"><span style="font-weight:bold">&lt;torznab:attr</span> <span style="color:#007f7f">name=</span><span style="color:#0ff;font-weight:bold">&#34;peers&#34;</span> <span style="color:#007f7f">value=</span><span style="color:#0ff;font-weight:bold">&#34;39&#34;</span><span style="font-weight:bold">/&gt;</span>
-</span><span style="font-weight:bold">&lt;torznab:attr</span> <span style="color:#007f7f">name=</span><span style="color:#0ff;font-weight:bold">&#34;infohash&#34;</span> <span style="color:#007f7f">value=</span><span style="color:#0ff;font-weight:bold">&#34;e2e457b2e77128cd20fafd0837bbdb9a4d543578&#34;</span><span style="font-weight:bold">/&gt;</span>
-<span style="font-weight:bold">&lt;torznab:attr</span> <span style="color:#007f7f">name=</span><span style="color:#0ff;font-weight:bold">&#34;minimumratio&#34;</span> <span style="color:#007f7f">value=</span><span style="color:#0ff;font-weight:bold">&#34;1.0&#34;</span><span style="font-weight:bold">/&gt;</span>
-<span style="font-weight:bold">&lt;torznab:attr</span> <span style="color:#007f7f">name=</span><span style="color:#0ff;font-weight:bold">&#34;minimumseedtime&#34;</span> <span style="color:#007f7f">value=</span><span style="color:#0ff;font-weight:bold">&#34;172800&#34;</span><span style="font-weight:bold">/&gt;</span></code></pre></div></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;torznab:attr</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;category&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;movie&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;torznab:attr</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;category&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;1080&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;torznab:attr</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;category&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;YiFY&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;torznab:attr</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;type&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;video&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="display:block;width:100%;background-color:#3c3d38"><span style="color:#f92672">&lt;torznab:attr</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;seeders&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;635&#34;</span><span style="color:#f92672">/&gt;</span>
+</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="color:#f92672">&lt;torznab:attr</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;peers&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;39&#34;</span><span style="color:#f92672">/&gt;</span>
+</span><span style="color:#f92672">&lt;torznab:attr</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;infohash&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;e2e457b2e77128cd20fafd0837bbdb9a4d543578&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;torznab:attr</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;minimumratio&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;1.0&#34;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;torznab:attr</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;minimumseedtime&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;172800&#34;</span><span style="color:#f92672">/&gt;</span></code></pre></div></p>
 
 <p>which are not parsed by feedparser library.</p>
 
@@ -176,111 +191,156 @@ So, I used <a href="https://pypi.org/project/terminaltables/" target="_blank">te
 <p><img src="https://i.ibb.co/d5gxSZf/photo-2019-04-01-13-42-19.jpg" alt="output" /></p>
 
 <p>The script is given below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># Created by Selva &lt;selva@selvasoft.in&gt;
+# © Selva
+import requests
+import argparse
+import sys
+from bs4 import BeautifulSoup
+from terminaltables import SingleTable
+from textwrap import wrap
 
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#007f7f"># Created by Selva &lt;selva@selvasoft.in&gt;</span>
-<span style="color:#007f7f"># © Selva</span>
-<span style="color:#fff;font-weight:bold">import</span> requests
-<span style="color:#fff;font-weight:bold">import</span> argparse
-<span style="color:#fff;font-weight:bold">import</span> sys
-<span style="color:#fff;font-weight:bold">from</span> bs4 <span style="color:#fff;font-weight:bold">import</span> BeautifulSoup
-<span style="color:#fff;font-weight:bold">from</span> terminaltables <span style="color:#fff;font-weight:bold">import</span> SingleTable
-<span style="color:#fff;font-weight:bold">from</span> textwrap <span style="color:#fff;font-weight:bold">import</span> wrap
+baseURL = &#39;https://www.skytorrents.to/rss?search=&#39;
 
-baseURL = <span style="color:#0ff;font-weight:bold">&#39;https://www.skytorrents.to/rss?search=&#39;</span>
-
-<span style="color:#007f7f"># Using in-built argparse library to parse the command line arguments </span>
-parser = argparse.ArgumentParser(description=<span style="color:#0ff;font-weight:bold">&#34;Search torrents from the command line easily.&#34;</span>)
-parser.add_argument(<span style="color:#0ff;font-weight:bold">&#39;-i&#39;</span>,<span style="color:#0ff;font-weight:bold">&#39;--items&#39;</span>,default=<span style="color:#ff0;font-weight:bold">5</span>,help=<span style="color:#0ff;font-weight:bold">&#39;Number of items to display ( default: 5 )&#39;</span>)
-parser.add_argument(<span style="color:#0ff;font-weight:bold">&#39;searchTerm&#39;</span>,<span style="color:#fff;font-weight:bold">type</span>=<span style="color:#fff;font-weight:bold">str</span>,help=<span style="color:#0ff;font-weight:bold">&#39;Search term to search for torrent&#39;</span>)
+# Using in-built argparse library to parse the command line arguments 
+parser = argparse.ArgumentParser(description=&#34;Search torrents from the command line easily.&#34;)
+parser.add_argument(&#39;-i&#39;,&#39;--items&#39;,default=5,help=&#39;Number of items to display ( default: 5 )&#39;)
+parser.add_argument(&#39;searchTerm&#39;,type=str,help=&#39;Search term to search for torrent&#39;)
 args = parser.parse_args()
-<span style="color:#007f7f"># Replacing the blank space(&#34; &#34;) with &#34;+&#34;, since the URL doesnt have any blank space</span>
-searchTerm = args.searchTerm.replace(<span style="color:#0ff;font-weight:bold">&#39; &#39;</span>,<span style="color:#0ff;font-weight:bold">&#39;+&#39;</span>)
+# Replacing the blank space(&#34; &#34;) with &#34;+&#34;, since the URL doesnt have any blank space
+searchTerm = args.searchTerm.replace(&#39; &#39;,&#39;+&#39;)
 num = args.items
 r = requests.get(baseURL+searchTerm)
-soup = BeautifulSoup(r.text,<span style="color:#0ff;font-weight:bold">&#39;xml&#39;</span>)
-items = soup.find_all(<span style="color:#0ff;font-weight:bold">&#39;item&#39;</span>)
-<span style="color:#fff;font-weight:bold">if</span> <span style="color:#fff;font-weight:bold">len</span>(items)==<span style="color:#ff0;font-weight:bold">0</span>:
-    <span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#39;Item not found!!!&#39;</span>)
-    sys.<span style="color:#fff;font-weight:bold">exit</span>()
+soup = BeautifulSoup(r.text,&#39;xml&#39;)
+items = soup.find_all(&#39;item&#39;)
+if len(items)==0:
+    print(&#39;Item not found!!!&#39;)
+    sys.exit()
 
-<span style="color:#fff;font-weight:bold">def</span> convertSize(size):
-    size = <span style="color:#fff;font-weight:bold">round</span>(size / <span style="color:#ff0;font-weight:bold">1024</span>,<span style="color:#ff0;font-weight:bold">2</span>)
-    suffix = <span style="color:#0ff;font-weight:bold">&#39;KB&#39;</span>
-    <span style="color:#fff;font-weight:bold">if</span> size &gt; <span style="color:#ff0;font-weight:bold">1000</span>:
-        size = <span style="color:#fff;font-weight:bold">round</span>(size / <span style="color:#ff0;font-weight:bold">1024</span>,<span style="color:#ff0;font-weight:bold">2</span>)
-        suffix = <span style="color:#0ff;font-weight:bold">&#39;MB&#39;</span>
-    <span style="color:#fff;font-weight:bold">if</span> size &gt; <span style="color:#ff0;font-weight:bold">1000</span>:
-        size = <span style="color:#fff;font-weight:bold">round</span>(size / <span style="color:#ff0;font-weight:bold">1024</span>,<span style="color:#ff0;font-weight:bold">2</span>)
-        suffix = <span style="color:#0ff;font-weight:bold">&#39;GB&#39;</span>    
-    <span style="color:#fff;font-weight:bold">if</span> size &gt; <span style="color:#ff0;font-weight:bold">1000</span>:
-        size = <span style="color:#fff;font-weight:bold">round</span>(size / <span style="color:#ff0;font-weight:bold">1024</span>,<span style="color:#ff0;font-weight:bold">2</span>)
-        suffix = <span style="color:#0ff;font-weight:bold">&#39;TB&#39;</span>
-    <span style="color:#fff;font-weight:bold">return</span> ( <span style="color:#fff;font-weight:bold">str</span>(size) + <span style="color:#0ff;font-weight:bold">&#39; &#39;</span> + suffix )
+def convertSize(size):
+    size = round(size / 1024,2)
+    suffix = &#39;KB&#39;
+    if size &gt; 1000:
+        size = round(size / 1024,2)
+        suffix = &#39;MB&#39;
+    if size &gt; 1000:
+        size = round(size / 1024,2)
+        suffix = &#39;GB&#39;    
+    if size &gt; 1000:
+        size = round(size / 1024,2)
+        suffix = &#39;TB&#39;
+    return ( str(size) + &#39; &#39; + suffix )
 
 list1 = [ ]
 mgntList = [ ]
-list1.append([<span style="color:#0ff;font-weight:bold">&#39;Index&#39;</span>,<span style="color:#0ff;font-weight:bold">&#39;Title&#39;</span>,<span style="color:#0ff;font-weight:bold">&#39;Date Added&#39;</span>,<span style="color:#0ff;font-weight:bold">&#39;Size&#39;</span>,<span style="color:#0ff;font-weight:bold">&#39;Seeders&#39;</span>,<span style="color:#0ff;font-weight:bold">&#39;Leechers&#39;</span>])
-<span style="color:#fff;font-weight:bold">for</span> i in <span style="color:#fff;font-weight:bold">range</span>(<span style="color:#fff;font-weight:bold">int</span>(num)):
+list1.append([&#39;Index&#39;,&#39;Title&#39;,&#39;Date Added&#39;,&#39;Size&#39;,&#39;Seeders&#39;,&#39;Leechers&#39;])
+for i in range(int(num)):
     item = items[i]
     tempList = [ ]
-    tempList.append(<span style="color:#fff;font-weight:bold">str</span>(i+<span style="color:#ff0;font-weight:bold">1</span>))
+    tempList.append(str(i+1))
     tempList.append(item.title.text)
     mgntList.append(item.magneturl.text)
-    tempList.append(item.pubDate.text[<span style="color:#ff0;font-weight:bold">5</span>:<span style="color:#ff0;font-weight:bold">16</span>])
-    tempList.append(convertSize(<span style="color:#fff;font-weight:bold">int</span>(item.size.text)))
-    seeders = item.find(attrs={<span style="color:#0ff;font-weight:bold">&#39;name&#39;</span>:<span style="color:#0ff;font-weight:bold">&#39;seeders&#39;</span>})
-    tempList.append(seeders[<span style="color:#0ff;font-weight:bold">&#39;value&#39;</span>])
-    peers = item.find(attrs={<span style="color:#0ff;font-weight:bold">&#39;name&#39;</span>:<span style="color:#0ff;font-weight:bold">&#39;peers&#39;</span>})
-    tempList.append(peers[<span style="color:#0ff;font-weight:bold">&#39;value&#39;</span>])
+    tempList.append(item.pubDate.text[5:16])
+    tempList.append(convertSize(int(item.size.text)))
+    seeders = item.find(attrs={&#39;name&#39;:&#39;seeders&#39;})
+    tempList.append(seeders[&#39;value&#39;])
+    peers = item.find(attrs={&#39;name&#39;:&#39;peers&#39;})
+    tempList.append(peers[&#39;value&#39;])
     list1.append(tempList)
 
 
 cuteTable = SingleTable(list1)
-max_width = cuteTable.column_max_width(<span style="color:#ff0;font-weight:bold">1</span>)
-<span style="color:#fff;font-weight:bold">for</span> i in <span style="color:#fff;font-weight:bold">range</span>(<span style="color:#ff0;font-weight:bold">1</span>,<span style="color:#fff;font-weight:bold">len</span>(list1)):
+max_width = cuteTable.column_max_width(1)
+for i in range(1,len(list1)):
     row = list1[i]
-    wrappedString = <span style="color:#0ff;font-weight:bold">&#39;</span><span style="color:#0ff;font-weight:bold">\n</span><span style="color:#0ff;font-weight:bold">&#39;</span>.join(wrap(row[<span style="color:#ff0;font-weight:bold">1</span>], max_width))
-    cuteTable.table_data[i][<span style="color:#ff0;font-weight:bold">1</span>] = wrappedString +<span style="color:#0ff;font-weight:bold">&#39;</span><span style="color:#0ff;font-weight:bold">\n</span><span style="color:#0ff;font-weight:bold">&#39;</span>
+    wrappedString = &#39;\n&#39;.join(wrap(row[1], max_width))
+    cuteTable.table_data[i][1] = wrappedString +&#39;\n&#39;
     
-<span style="color:#fff;font-weight:bold">print</span>(cuteTable.table)
-choice = <span style="color:#fff;font-weight:bold">int</span>(<span style="color:#fff;font-weight:bold">input</span>(<span style="color:#0ff;font-weight:bold">&#39;</span><span style="color:#0ff;font-weight:bold">\n</span><span style="color:#0ff;font-weight:bold">Enter the index---&gt;&#39;</span>))
-<span style="color:#fff;font-weight:bold">print</span>(<span style="color:#0ff;font-weight:bold">&#39;</span><span style="color:#0ff;font-weight:bold">\n</span><span style="color:#0ff;font-weight:bold">The magnet link is :</span><span style="color:#0ff;font-weight:bold">\n</span><span style="color:#0ff;font-weight:bold">&#39;</span>)
-<span style="color:#fff;font-weight:bold">print</span>(mgntList[choice])</code></pre></div>
-
+print(cuteTable.table)
+choice = int(input(&#39;\nEnter the index---&gt;&#39;))
+print(&#39;\nThe magnet link is :\n&#39;)
+print(mgntList[choice])</pre></div>
 <p>Any doubts? Contact me. ( Social Links are in the home page )
 <a href="https://selvasoft.in">Homepage</a></p>
 
-      </div>
+            </div>
+        </article>
 
-      <footer>
+        <hr />
+
+        <div class="post-info">
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>491 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-04-01 13:01 &#43;0530</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+                        <span class="button previous">
+                            <a href="https://selvasoft.in/posts/best-python-script-i-ever-created/">
+                                <span class="button__icon">←</span>
+                                <span class="button__text">Best Python Script I Ever Created</span>
+                            </a>
+                        </span>
+                    
+
+                    
+                        <span class="button next">
+                            <a href="https://selvasoft.in/posts/how-i-escaped-from-mass-surveilance/">
+                                <span class="button__text">How I Escaped From Mass Surveilance</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
         
 
-
         
-      </footer>
-    </article>
-
-    
-  </section>
-
-      </div>
-
-      <footer class="footer">
-  <section class="container">
-    
-     © Selva 2019
-    
-    
-        
-      <a href="https://github.com/luizdepra/hugo-coder/tree/"></a>
-    
-  </section>
-</footer>
-
     </main>
 
-    
+            </div>
 
-  </body>
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; Selva 2019</span>
+            
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
 
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Made with &#10084; by <a href="https://github.com/peratchiselvan">Selva</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://selvasoft.in/bundle.min.af3ac31315e5ccefbac734b02d2dd96a2b9ce57f2b42d9cd01d12ca0480a75b8b90800f9b5d3a82a0c806bba6693d95f705e609f3b1a9284f9eae6f6a364b6ef.js" integrity="sha512-rzrDExXlzO&#43;6xzSwLS3Zaiuc5X8rQtnNAdEsoEgKdbi5CAD5tdOoKgyAa7pmk9lfcF5gnzsakoT56ub2o2S27w=="></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+
+    </body>
 </html>
